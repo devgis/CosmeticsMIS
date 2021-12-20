@@ -29,12 +29,9 @@ namespace 化妆品信息管理系统
         }
         DataTable myDataTable;
         SqlConnection mysqlConnection;
-
-        public static string MySqlCon = " Data Source=PC-20201024PGYI\\SQLEXPRESS;Initial Catalog=cosmeticsmanage;Integrated Security=True ";
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='海蓝之谜'";
@@ -47,7 +44,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy9_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='唇部护理'";
@@ -60,7 +57,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='理肤泉'";
@@ -73,7 +70,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy3_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='魅可'";
@@ -86,7 +83,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy1_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='娇兰'";
@@ -99,7 +96,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy2_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='兰蔻'";
@@ -112,7 +109,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy6_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='希思黎'";
@@ -125,7 +122,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy4_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='资生堂'";
@@ -138,7 +135,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy5_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='雅诗兰黛'";
@@ -151,7 +148,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy10_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='精华'";
@@ -164,7 +161,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy11_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='口红'";
@@ -177,7 +174,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy12_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='粉底气垫'";
@@ -190,7 +187,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy13_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='高光修容'";
@@ -203,7 +200,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy14_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='化妆水'";
@@ -216,7 +213,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy15_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='香水'";
@@ -229,7 +226,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy16_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='乳液面霜'";
@@ -242,7 +239,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy7_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE category='其他'";
@@ -255,7 +252,7 @@ namespace 化妆品信息管理系统
 
         private void button_Copy8_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
             string readCmd = "SELECT coname,brandname,category,price FROM cosmetics WHERE brandname='其他'";

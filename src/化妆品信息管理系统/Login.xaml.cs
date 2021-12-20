@@ -58,6 +58,7 @@ namespace 化妆品信息管理系统
                     {
                         MessageBox.Show("登录成功");
                         MainWindow mMainWindow = new MainWindow();
+                        MainWindow.currentid = Convert.ToInt32(txtBoxName.Text);
                         this.Visibility = Visibility.Collapsed;
                         mMainWindow.ShowDialog();
                     }

@@ -36,7 +36,7 @@ namespace 化妆品信息管理系统
             {
                 DataTable myDataTable = new DataTable();
 
-                string readCmd = "SELECT * FROM login where user_id = '" + txtBoxName.Text + "'";
+                string readCmd = "SELECT * FROM ulogin where displayname = '" + txtBoxName.Text + "'";
                 using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(readCmd, mysqlConnection))
                 {
                     myDataTable.Clear();
@@ -48,22 +48,20 @@ namespace 化妆品信息管理系统
                     }
                     else
                     {
-                        string readRegisterCmd = "SELECT * FROM login ";
+                        string readRegisterCmd = "SELECT * FROM ulogin ";
+                        int nextuser_id = GetMax();
                         using (SqlDataAdapter sqlRegisterDataAdapter = new SqlDataAdapter(readRegisterCmd, mysqlConnection))
                         {
                             myDataTable.Clear();
                             sqlRegisterDataAdapter.Fill(myDataTable);
                             SqlCommandBuilder builder = new SqlCommandBuilder(sqlRegisterDataAdapter);
                             DataRow datarow = myDataTable.NewRow();
-                            datarow["uname"] = txtBoxName.Text;
-                            datarow["password"] = passwordBox.Password;
-                            datarow["number"] = txtBoxNumber.Text;
-                            datarow["tell"] = txtBoxTell.Text;
-                            datarow["usex"] = comboBoxUsex.Text;
-                            datarow["user_id"] = myDataTable.Rows.Count + 1;
+                            datarow["displayname"] = txtBoxName.Text;
+                            datarow["upassword"] = passwordBox.Password;
+                            datarow["user_id"] = nextuser_id;
                             myDataTable.Rows.Add(datarow);
                             sqlRegisterDataAdapter.Update(myDataTable);
-                            MessageBox.Show("注册成功");
+                            MessageBox.Show($"注册成功,请使用账户: {nextuser_id} 登录！");
                             this.Close();
 
 
@@ -77,10 +75,29 @@ namespace 化妆品信息管理系统
             }
         }
 
+        private int GetMax()
+        {
+            int min =1001;
+            string readRegisterCmd = "SELECT max(user_id) FROM ulogin ";
+            DataTable myDataTable = new DataTable();
+            using (SqlDataAdapter sqlRegisterDataAdapter = new SqlDataAdapter(readRegisterCmd, mysqlConnection))
+            {
+                sqlRegisterDataAdapter.Fill(myDataTable);
+                if (myDataTable == null || myDataTable.Rows.Count <= 0)
+                {
+                    return min;
+                }
+                else
+                {
+                    return Convert.ToInt32(myDataTable.Rows[0][0]) + 1;
+                }
+            }
+        }
+
         private void txtBoxName_TextChanged(object sender, TextChangedEventArgs e)
         {
             DataTable myDataTable = new DataTable();
-            string readCmd = "SELECT * FROM login where user_id = '" + txtBoxName.Text + "'";
+            string readCmd = "SELECT * FROM ulogin where displayname = '" + txtBoxName.Text + "'";
             using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(readCmd, mysqlConnection))
             {
                 myDataTable.Clear();

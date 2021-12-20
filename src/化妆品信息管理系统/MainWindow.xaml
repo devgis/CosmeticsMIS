@@ -8,7 +8,7 @@
         Title="MainWindow" Height="400" Width="700">
     <Grid>
         <Label x:Name="label" Content="浏览：" HorizontalAlignment="Left" Margin="180,40,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ListView x:Name="listView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="234" Margin="208,89,0,0" VerticalAlignment="Top" Width="446" Background="#FFC2EDFF" >
+        <ListView x:Name="listView" SelectionChanged="listView_SelectionChanged" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="234" Margin="208,89,0,0" VerticalAlignment="Top" Width="446" Background="#FFC2EDFF" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width=" 70" Header=" 化妆品编号" DisplayMemberBinding="{Binding co_id}"/>
@@ -19,7 +19,7 @@
             </ListView.View>
         </ListView>
         <Button x:Name="button" Content="类别" HorizontalAlignment="Left" VerticalAlignment="Top" Width="139" Height="70" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" Background="#FF9EBBED" Margin="0,11,0,0" FontSize="18" Click="button_Click"/>
-        <Button x:Name="button1" Content="搜索" HorizontalAlignment="Left" Margin="559,46,0,0" VerticalAlignment="Top" Width="84" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="29"/>
+        <Button x:Name="button1" Content="搜索" HorizontalAlignment="Left" Margin="559,46,0,0" VerticalAlignment="Top" Width="84" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="29" Click="button1_Click"/>
         <Button x:Name="button2" Content="评论" HorizontalAlignment="Left" Margin="0,103,0,0" VerticalAlignment="Top" Width="139" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" Background="#FFE4C5F6" Height="70" FontSize="18" Click="button2_Click"/>
         <Button x:Name="button3" Content="反馈" HorizontalAlignment="Left" Margin="0,193,0,0" VerticalAlignment="Top" Width="139" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" Background="#FF9EBBED" Height="70" FontSize="18" />
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="250,46,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">

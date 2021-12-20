@@ -31,13 +31,11 @@ namespace 化妆品信息管理系统
         DataTable myDataTable;
         SqlConnection mysqlConnection;
 
-        public static string MySqlCon = " Data Source=PC-20201024PGYI\\SQLEXPRESS;Initial Catalog=cosmeticsmanage;Integrated Security=True ";
-
         private void BtnConnect_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                mysqlConnection = new SqlConnection(MySqlCon);
+                mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
                 mysqlConnection.Open();
                 MessageBox.Show("数据库已经连接");
             }

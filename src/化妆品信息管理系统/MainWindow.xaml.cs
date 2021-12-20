@@ -32,8 +32,9 @@ namespace 化妆品信息管理系统
 
         DataTable myDataTable;
         SqlConnection mysqlConnection;
+        public static int currentid = 0;
 
-        public static string MySqlCon = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Temp\\db\\cosmeticsmanage.mdf;Integrated Security=True;Connect Timeout=30"; //" Data Source=PC-20201024PGYI\\SQLEXPRESS;Initial Catalog=cosmeticsmanage;Integrated Security=True ";
+        public static string MySqlCon = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Github\\CosmeticsMIS\\db\\cosmeticsmanage.mdf;Integrated Security=True;Connect Timeout=30"; //" Data Source=PC-20201024PGYI\\SQLEXPRESS;Initial Catalog=cosmeticsmanage;Integrated Security=True ";
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
@@ -73,6 +74,58 @@ namespace 化妆品信息管理系统
             Login wlogin = new Login();
             wlogin.Show();
 
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            string readCmd = "SELECT co_id,coname,category,price FROM cosmetics ";
+            if (!string.IsNullOrEmpty(txtBoxSearch.Text))
+            {
+                readCmd += $" where coname like '%{txtBoxSearch.Text}%' ";
+            }
+            if (!string.IsNullOrEmpty(comboBox.Text))
+            {
+                switch (comboBox.Text)
+                {
+                    case "最新":
+                        readCmd += $" order by submittime desc";
+                        break;
+                    case "最热":
+                        readCmd += $" order by clickcount desc";
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            using (mysqlConnection = new SqlConnection(MySqlCon))
+            {
+                mysqlConnection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(readCmd, mysqlConnection);
+                myDataTable.Clear();
+                sqlDataAdapter.Fill(myDataTable);
+            }
+        }
+
+        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = listView.SelectedItem as DataRowView;
+            if (item != null)
+            {
+                var id=item.Row["co_id"].ToString();
+
+                string write = $"update cosmetics set clickcount =clickcount+1 where co_id={id}";
+                using (mysqlConnection = new SqlConnection(MySqlCon))
+                {
+                    mysqlConnection.Open();
+                    SqlCommand cmd = new SqlCommand(write, mysqlConnection);
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            //(e.Source as ListViewItem).GetValue("");
         }
     }
 }

@@ -31,8 +31,6 @@ namespace 化妆品信息管理系统
         DataTable myDataTable;
         SqlConnection mysqlConnection;
 
-        public static string MySqlCon = " Data Source=PC-20201024PGYI\\SQLEXPRESS;Initial Catalog=cosmeticsmanage;Integrated Security=True ";
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string ucomment = txtBoxComment.Text.ToString();
@@ -46,10 +44,10 @@ namespace 化妆品信息管理系统
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MySqlCon);
+            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
             mysqlConnection.Open();
 
-            string readCmd = "SELECT * FROM ucomments";
+            string readCmd = $"SELECT uc.ucomment,ul.displayname as ucname FROM ucomments uc left join ulogin ul on uc.user_id=ul.user_id where uc.user_id!={MainWindow.currentid} order by uc.submittime desc";
             using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(readCmd, mysqlConnection))
             {
                 myDataTable.Clear();
