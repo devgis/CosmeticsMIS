@@ -1,0 +1,31 @@
+﻿<Window x:Class="化妆品信息管理系统.MainWindowworker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:化妆品信息管理系统"
+        mc:Ignorable="d"
+        Title="MainWindowworker" Height="400" Width="500">
+    <Grid>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="493">
+            <MenuItem Header="编辑" FontSize="11" Width="50">
+                <MenuItem Header="用户信息" Click="MenuItem_Click_1"/>
+                <MenuItem Header="化妆品信息" Click="MenuItem_Click"/>
+                <MenuItem Header="管理员信息"/>
+            </MenuItem>
+            <MenuItem Header="审核" FontSize="11" Width="50">
+                <MenuItem Header="用户信息"/>
+                <MenuItem Header="用户评论" Click="MenuItem_Click_2"/>
+            </MenuItem>
+            <MenuItem Header="系统" FontSize="11" Width="50">
+                <MenuItem Header="维护"/>
+                <MenuItem Header="更新"/>
+            </MenuItem>
+            <MenuItem Header="反馈" FontSize="11" Width="50">
+                <MenuItem Header="用户反馈信息"/>
+                <MenuItem Header="反馈处理进度"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

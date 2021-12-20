@@ -1,0 +1,46 @@
+﻿<Window x:Class="化妆品信息管理系统.编辑化妆品信息"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:化妆品信息管理系统"
+        mc:Ignorable="d"
+        Title="编辑化妆品信息" Height="500" Width="900">
+    <Grid>
+        <Button x:Name="BtnConnect" Content="连接数据库" HorizontalAlignment="Left" Margin="798,60,0,0" VerticalAlignment="Top" Width="70" Height="34" Click="BtnConnect_Click"/>
+        <ListView x:Name="listView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="242" Margin="22,17,0,0" VerticalAlignment="Top" Width="731" Background="#FFC2EDFF" SelectionChanged="listView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width=" 70" Header=" 化妆品编号" DisplayMemberBinding="{Binding co_id}"/>
+                    <GridViewColumn Width=" 140" Header=" 化妆品名" DisplayMemberBinding="{Binding coname}"/>
+                    <GridViewColumn Width=" 80" Header=" 价格" DisplayMemberBinding="{Binding price}"/>
+                    <GridViewColumn Width=" 80" Header=" 版本号" DisplayMemberBinding="{Binding versionnumber}"/>
+                    <GridViewColumn Width=" 100" Header=" 品牌名" DisplayMemberBinding="{Binding brandname}"/>
+                    <GridViewColumn Width=" 80" Header=" 开盖保质期" DisplayMemberBinding="{Binding periodafteropening}"/>
+                    <GridViewColumn Width=" 100" Header=" 类别" DisplayMemberBinding="{Binding category}"/>
+                    <GridViewColumn Width=" 80" Header=" 净含量" DisplayMemberBinding="{Binding netcontent}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="BtnRead" Content="读取数据库" HorizontalAlignment="Left" Height="34" Margin="798,120,0,0" VerticalAlignment="Top" Width="70" Click="BtnRead_Click"/>
+        <Label x:Name="label" Content="化妆品名" HorizontalAlignment="Left" Margin="22,298,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label2" Content="价格" HorizontalAlignment="Left" Margin="279,300,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtBoxConame" HorizontalAlignment="Left" Height="25" Margin="131,303,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="txtBoxPrice" HorizontalAlignment="Left" Height="25" Margin="367,303,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="btnWrite" Content="写入数据库" HorizontalAlignment="Left" Margin="798,181,0,0" VerticalAlignment="Top" Width="70" Height="36" Click="btnWrite_Click"/>
+        <Label x:Name="label1" Content="版本号" HorizontalAlignment="Left" Margin="528,298,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtBoxVersionnumber" HorizontalAlignment="Left" Height="25" Margin="615,303,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="btnAlter" Content="修改数据库" HorizontalAlignment="Left" Margin="798,248,0,0" VerticalAlignment="Top" Width="70" Height="34" Click="btnAlter_Click"/>
+        <Button x:Name="btnDelete" Content="删除数据库" HorizontalAlignment="Left" Margin="798,308,0,0" VerticalAlignment="Top" Width="70" Height="34" Click="btnDelete_Click"/>
+        <Label x:Name="label3" Content="品牌名" HorizontalAlignment="Left" Margin="22,354,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtBoxBrandname" HorizontalAlignment="Left" Height="25" Margin="131,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88"/>
+        <Label x:Name="label4" Content="开盖保质期" HorizontalAlignment="Left" Margin="259,359,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtBoxPeriodafteropening" HorizontalAlignment="Left" Height="25" Margin="367,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88"/>
+        <Label x:Name="label5" Content="类别" HorizontalAlignment="Left" Margin="528,359,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtBoxCategory" HorizontalAlignment="Left" Height="23" Margin="615,361,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88"/>
+        <Label x:Name="label6" Content="净含量" HorizontalAlignment="Left" Margin="22,412,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtBoxNetcontent" HorizontalAlignment="Left" Height="23" Margin="131,419,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88"/>
+        <Label x:Name="label7" Content="——操作——" HorizontalAlignment="Left" Margin="772,11,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Microsoft YaHei" FontSize="16"/>
+
+    </Grid>
+</Window>

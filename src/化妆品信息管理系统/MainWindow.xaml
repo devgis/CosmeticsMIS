@@ -1,0 +1,34 @@
+﻿<Window x:Class="化妆品信息管理系统.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:化妆品信息管理系统"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="700">
+    <Grid>
+        <Label x:Name="label" Content="浏览：" HorizontalAlignment="Left" Margin="180,40,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ListView x:Name="listView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="234" Margin="208,89,0,0" VerticalAlignment="Top" Width="446" Background="#FFC2EDFF" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width=" 70" Header=" 化妆品编号" DisplayMemberBinding="{Binding co_id}"/>
+                    <GridViewColumn Width=" 170" Header=" 化妆品名" DisplayMemberBinding="{Binding coname}"/>
+                    <GridViewColumn Width=" 100" Header=" 价格" DisplayMemberBinding="{Binding price}"/>
+                    <GridViewColumn Width=" 100" Header=" 类别" DisplayMemberBinding="{Binding category}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="button" Content="类别" HorizontalAlignment="Left" VerticalAlignment="Top" Width="139" Height="70" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" Background="#FF9EBBED" Margin="0,11,0,0" FontSize="18" Click="button_Click"/>
+        <Button x:Name="button1" Content="搜索" HorizontalAlignment="Left" Margin="559,46,0,0" VerticalAlignment="Top" Width="84" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="29"/>
+        <Button x:Name="button2" Content="评论" HorizontalAlignment="Left" Margin="0,103,0,0" VerticalAlignment="Top" Width="139" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" Background="#FFE4C5F6" Height="70" FontSize="18" Click="button2_Click"/>
+        <Button x:Name="button3" Content="反馈" HorizontalAlignment="Left" Margin="0,193,0,0" VerticalAlignment="Top" Width="139" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" Background="#FF9EBBED" Height="70" FontSize="18" />
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="250,46,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
+            <ComboBoxItem Content="最热" HorizontalAlignment="Left" Width="99.3333333333333"/>
+            <ComboBoxItem Content="最新" HorizontalAlignment="Left" Width="99.3333333333333" Selected="ComboBoxItem_Selected"/>
+        </ComboBox>
+        <Button x:Name="button2_Copy" Content="设置保质期到期提醒" HorizontalAlignment="Left" Margin="0,281,0,0" VerticalAlignment="Top" Width="139" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" Background="#FFE4C5F6" Height="70" FontSize="14" Click="button2_Copy_Click"/>
+        <TextBox x:Name="txtBoxSearch" HorizontalAlignment="Left" Height="21" Margin="375,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
+        <Button x:Name="button4" Content="返回" HorizontalAlignment="Left" Margin="629,341,0,0" VerticalAlignment="Top" Width="54" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Click="button4_Click"/>
+
+    </Grid>
+</Window>
