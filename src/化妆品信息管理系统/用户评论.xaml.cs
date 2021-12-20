@@ -26,6 +26,7 @@ namespace 化妆品信息管理系统
             InitializeComponent();
             myDataTable = new DataTable();
             DataContext = myDataTable;
+            button1_Click(this, new RoutedEventArgs());
         }
 
         DataTable myDataTable;
@@ -33,26 +34,36 @@ namespace 化妆品信息管理系统
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(txtBoxComment.Text.Trim()))
+            {
+                MessageBox.Show("请输入评语！");
+                txtBoxComment.Focus();
+                return;
+            }
             string ucomment = txtBoxComment.Text.ToString();
-            MessageBox.Show("请等待审核！");
-
-
-            审核用户评论 about = new 审核用户评论();
-            about.getComment = ucomment;
-            about.ShowDialog();
+            string write = $"insert into ucomments (user_id,ucomment,flag,clickcount)values({MainWindow.currentid},'{ucomment}',0,0)";
+            using (mysqlConnection = new SqlConnection(MainWindow.MySqlCon))
+            {
+                mysqlConnection.Open();
+                SqlCommand cmd = new SqlCommand(write, mysqlConnection);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("请等待审核！");
+                txtBoxComment.Text = string.Empty;
+                button1_Click(sender,e);
+            }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            mysqlConnection = new SqlConnection(MainWindow.MySqlCon);
-            mysqlConnection.Open();
-
-            string readCmd = $"SELECT uc.ucomment,ul.displayname as ucname FROM ucomments uc left join ulogin ul on uc.user_id=ul.user_id where uc.user_id!={MainWindow.currentid} order by uc.submittime desc";
-            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(readCmd, mysqlConnection))
+            using (var mysqlConnection = new SqlConnection(MainWindow.MySqlCon))
             {
+                mysqlConnection.Open();
+                string readCmd = $"SELECT uc.ucomment,ul.displayname as ucname FROM ucomments uc left join ulogin ul on uc.user_id=ul.user_id where uc.user_id={MainWindow.currentid} or flag=1 order by uc.submittime desc";
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(readCmd, mysqlConnection);
                 myDataTable.Clear();
                 sqlDataAdapter.Fill(myDataTable);
             }
+                
         }
     }
 }

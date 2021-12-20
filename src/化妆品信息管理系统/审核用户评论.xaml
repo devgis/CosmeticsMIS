@@ -4,11 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:化妆品信息管理系统"
-        mc:Ignorable="d"
-        Title="审核用户评论" Height="300" Width="300">
+        mc:Ignorable="d"  WindowStartupLocation="CenterScreen"
+        Title="审核用户评论" Height="300" Width="600">
     <Grid>
-        <TextBox x:Name="txtBoxOutputC" HorizontalAlignment="Left" Height="23" Margin="90,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button" Content="读取" HorizontalAlignment="Left" Margin="131,192,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <DataGrid x:Name="listView" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="174" Margin="40,24,0,0" VerticalAlignment="Top" Width="512" Background="#FFC2EDFF" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width=" 170" Visibility="Hidden" Header=" 昵称" Binding="{Binding user_id}"/>
+                <DataGridTextColumn Width=" 170" Header=" 昵称" Binding="{Binding ucname}"/>
+                <DataGridTextColumn Width=" 270" Header=" 评论" Binding="{Binding ucomment}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="审核" Click="Button_Click_1" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="button" Content="刷新" HorizontalAlignment="Left" Margin="470,210,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </Window>
