@@ -61,6 +61,7 @@ namespace 化妆品信息管理系统
                         MainWindow.currentid = Convert.ToInt32(txtBoxName.Text);
                         this.Visibility = Visibility.Collapsed;
                         mMainWindow.ShowDialog();
+                        Environment.Exit(0);
                     }
                     else
                         MessageBox.Show("密码错误");
@@ -93,6 +94,7 @@ namespace 化妆品信息管理系统
                         MainWindowworker mMainWindow = new MainWindowworker();
                         this.Visibility = Visibility.Collapsed;
                         mMainWindow.ShowDialog();
+                        Environment.Exit(0);
                     }
                     else
                         MessageBox.Show("密码错误");
